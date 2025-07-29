@@ -100,12 +100,12 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
     <div
       className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
-      <div className="flex items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3 mx-auto max-w-[85%] sm:max-w-[500px] md:max-w-[600px]">
+      <div className="flex flex-wrap justify-center items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-4 py-2 mx-auto max-w-[85%] sm:max-w-[500px] md:max-w-[600px] overflow-x-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onSectionClick(item.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
               activeSection === item.id
                 ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/25'
                 : 'text-gray-300 hover:text-white hover:bg-gray-800'
@@ -130,7 +130,7 @@ const AnimatedBeam = () => {
 };
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('about'); // Changed default to 'about' since 'home' is removed
+  const [activeSection, setActiveSection] = useState('about');
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -142,7 +142,7 @@ const Portfolio = () => {
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
     { id: 'contact', name: 'Contact' }
-  ]; // Removed 'home' from navItems
+  ];
 
   const projects = [
     {
@@ -201,7 +201,7 @@ const Portfolio = () => {
       />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative pt-20"> {/* Added pt-20 to push content down */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-16"> {/* Adjusted pt-16 for navbar height */}
         <div className="text-center z-10 max-w-4xl mx-auto px-3 mt-3">
           <TextGenerateEffect 
             words="Hi, I'm Sejal Pujari"
