@@ -132,7 +132,7 @@ const AnimatedBeam = () => {
 };
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('about'); // Changed default to 'about' since 'home' is removed
+  const [activeSection, setActiveSection] = useState('home');
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -140,11 +140,12 @@ const Portfolio = () => {
   };
 
   const navItems = [
+    { id: 'home', name: 'Home' },
     { id: 'about', name: 'About' },
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
     { id: 'contact', name: 'Contact' }
-  ]; // Removed 'home' from navItems
+  ];
 
   const projects = [
     {
