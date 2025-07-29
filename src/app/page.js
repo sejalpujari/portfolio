@@ -97,8 +97,10 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
   }, [lastScrollY]);
 
   return (
-    <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-      <div className="flex items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3">
+    <div
+      className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
+    >
+      <div className="flex items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3 mx-auto max-w-[85%] sm:max-w-[500px] md:max-w-[600px]">
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -128,8 +130,7 @@ const AnimatedBeam = () => {
 };
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('home');
-
+  const [activeSection, setActiveSection] = useState('about'); // Changed default to 'about' since 'home' is removed
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -137,12 +138,11 @@ const Portfolio = () => {
   };
 
   const navItems = [
-    { id: 'home', name: 'Home' },
     { id: 'about', name: 'About' },
     { id: 'experience', name: 'Experience' },
     { id: 'projects', name: 'Projects' },
     { id: 'contact', name: 'Contact' }
-  ];
+  ]; // Removed 'home' from navItems
 
   const projects = [
     {
@@ -192,8 +192,6 @@ const Portfolio = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Animated Background */}
       <AnimatedBeam />
-      
-
 
       {/* Floating Navigation */}
       <FloatingNavbar 
@@ -203,7 +201,7 @@ const Portfolio = () => {
       />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative">
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-20"> {/* Added pt-20 to push content down */}
         <div className="text-center z-10 max-w-4xl mx-auto px-3 mt-3">
           <TextGenerateEffect 
             words="Hi, I'm Sejal Pujari"
