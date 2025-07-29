@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, Calendar, Award, Code2, Database, Smartphone, Globe, ChevronRight, Star, Zap, BookOpen } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/next";
 
 // Aceternity-inspired components
 const TextGenerateEffect = ({ words, className = "" }) => {
@@ -100,12 +101,12 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
     <div
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
-      <div className="flex items-center justify-center gap-0.5 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3 mx-auto min-w-[260px] max-w-[85%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] overflow-x-auto">
+      <div className="flex items-center justify-center gap-1 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-4 py-2 mx-auto min-w-[240px] max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] overflow-x-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onSectionClick(item.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
               activeSection === item.id
                 ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/25'
                 : 'text-gray-300 hover:text-white hover:bg-gray-800'
@@ -190,6 +191,7 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Analytics />
       {/* Animated Background */}
       <AnimatedBeam />
 
