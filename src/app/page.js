@@ -100,7 +100,7 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
     <div
       className={`fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
-      <div className="flex flex-wrap justify-center items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-4 py-2 mx-auto max-w-[85%] sm:max-w-[500px] md:max-w-[600px] overflow-x-auto">
+      <div className="flex flex-wrap justify-center items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-4 py-2 mx-auto max-w-[70%] sm:max-w-[400px] md:max-w-[500px] overflow-x-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -201,7 +201,7 @@ const Portfolio = () => {
       />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative pt-16"> {/* Adjusted pt-16 for navbar height */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-16">
         <div className="text-center z-10 max-w-4xl mx-auto px-3 mt-3">
           <TextGenerateEffect 
             words="Hi, I'm Sejal Pujari"
