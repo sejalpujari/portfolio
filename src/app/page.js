@@ -97,13 +97,17 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
   }, [lastScrollY]);
 
   return (
-    <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-      <div className="flex items-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3">
+    <div
+      className={`fixed top-4 z-50 w-full max-w-[90%] sm:max-w-[600px] left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+        visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}
+    >
+      <div className="flex flex-wrap justify-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-4 py-2 sm:px-6 sm:py-3 overflow-x-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onSectionClick(item.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
               activeSection === item.id
                 ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/25'
                 : 'text-gray-300 hover:text-white hover:bg-gray-800'
@@ -129,7 +133,6 @@ const AnimatedBeam = () => {
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
-
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -192,8 +195,6 @@ const Portfolio = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Animated Background */}
       <AnimatedBeam />
-      
-
 
       {/* Floating Navigation */}
       <FloatingNavbar 
