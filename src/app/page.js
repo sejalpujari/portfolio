@@ -100,7 +100,7 @@ const FloatingNavbar = ({ navItems, activeSection, onSectionClick }) => {
     <div
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
     >
-      <div className="flex items-center justify-center gap-2 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3 mx-auto min-w-[260px] max-w-[85%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] overflow-x-auto">
+      <div className="flex items-center justify-center gap-0.5 bg-black/80 backdrop-blur-md border border-gray-800 rounded-full px-6 py-3 mx-auto min-w-[260px] max-w-[85%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] overflow-x-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
